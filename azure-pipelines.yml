@@ -15,6 +15,7 @@ pool:
 
 variables:
   npm_config_cache: $(Pipeline.Workspace)/.npm
+  address: ''
 
 steps:
   - task: NodeTool@0
@@ -36,8 +37,10 @@ steps:
   - script: npx playwright install --with-deps
     displayName: 'Install Playwright Browsers'
 
-  - script: npx playwright test
-    displayName: 'Run Playwright tests'
+  - script: npx playwright test tests/kleenheat-savings-calculator.spec.ts
+    displayName: 'Run Kleenheat Savings Calculator Tests'
+    env:
+      ADDRESS: $(address)
 
   - task: PublishBuildArtifacts@1
     condition: succeededOrFailed()
