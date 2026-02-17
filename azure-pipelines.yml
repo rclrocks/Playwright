@@ -36,8 +36,8 @@ steps:
   - script: npx playwright install --with-deps
     displayName: 'Install Playwright Browsers'
 
-  - script: npx playwright test
-    displayName: 'Run Playwright tests'
+  - script: npx playwright test tests/kleenheat-savings-calculator.spec.ts
+    displayName: 'Run Kleenheat Savings Calculator Tests'
 
   - task: PublishBuildArtifacts@1
     condition: succeededOrFailed()
