@@ -39,6 +39,7 @@ steps:
 
   - script: npx playwright test tests/kleenheat-savings-calculator.spec.ts
     displayName: 'Run Kleenheat Savings Calculator Tests'
+
     env:
       ADDRESS: $(address)
 
